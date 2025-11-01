@@ -1,12 +1,30 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 
+// === IMPORT ALL IMAGES FROM src/assets/ (ALL .png) ===
+import heroImg from './assets/hero.png';
+import project1 from './assets/project1.png';
+import project2 from './assets/project2.png';
+import project3 from './assets/project3.png';
+import project4 from './assets/project4.png';
+
+// Certifications (5)
+import certJava from './assets/cert-java.png';
+import certWeb from './assets/intern-web.png';     // Skillcraft Web Dev
+import certAI from './assets/intern-ai.png';       // Skillintern AI
+import certAWS from './assets/cert-aws.png';       // AWS
+import certAzure from './assets/cert-azure.png';   // Azure
+
+// Internships (2)
+import internWeb from './assets/intern-web.png';
+import internAI from './assets/intern-ai.png';
+
 type Illustration = { src: string; alt: string };
 
 const illustrations: Illustration[] = [
   { src: 'https://picsum.photos/id/43/1280/831', alt: 'Illustration 1' },
   { src: 'https://picsum.photos/id/180/2400/1600', alt: 'Illustration 2' },
-  { src: 'https://picsum.photos/id/63/5000/2813' },
+  { src: 'https://picsum.photos/id/63/5000/2813', alt: 'Illustration 3' },
   { src: 'https://picsum.photos/id/237/3500/2095', alt: 'Illustration 4' },
 ];
 
@@ -14,26 +32,26 @@ const projects = [
   {
     title: 'Queue-Based Simulation System',
     desc: 'A simulation model to optimize emergency department operations with efficient queue handling.',
-    img: 'https://i.postimg.cc/J0g73YsF/project1.jpg',
-    github: 'https://github.com/Chiyamaladevi9790/bus-ticket-booking-system', // Replace with actual GitHub URL
+    img: project1,
+    github: 'https://github.com/Chiyamaladevi9790/bus-ticket-booking-system',
   },
   {
     title: 'CGPA Calculator',
     desc: 'Python-based tool to calculate and track students’ Cumulative Grade Point Average.',
-    img: 'https://i.postimg.cc/sXdpmKhv/project2.png',
-    github: 'https://github.com/Chiyamaladevi9790/bus-ticket-booking-system', // Replace with actual GitHub URL
+    img: project2,
+    github: 'https://github.com/Chiyamaladevi9790/bus-ticket-booking-system',
   },
   {
     title: 'Budget Calculator',
     desc: 'Java Swing desktop app for efficient personal finance management.',
-    img: 'https://i.postimg.cc/gkdgmcrn/project3.jpg',
-    github: 'https://github.com/Chiyamaladevi9790/bus-ticket-booking-system', // Replace with actual GitHub URL
+    img: project3,
+    github: 'https://github.com/Chiyamaladevi9790/bus-ticket-booking-system',
   },
   {
     title: 'Bus Ticket Booking System',
     desc: 'Web app with real-time seat availability, UPI/QR/Card payments, and booking confirmations.',
-    img: 'https://i.postimg.cc/qRMshgV7/project4.jpg',
-    github: 'https://github.com/Chiyamaladevi9790/bus-ticket-booking-system', // Replace with actual GitHub URL
+    img: project4,
+    github: 'https://github.com/Chiyamaladevi9790/bus-ticket-booking-system',
   },
 ];
 
@@ -120,7 +138,6 @@ export default function App() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSending(true);
-    // Simulate sending message (replace with actual API call)
     setTimeout(() => {
       console.log('Message sent:', formData);
       setFormData({ name: '', email: '', message: '' });
@@ -152,19 +169,15 @@ export default function App() {
             </h1>
             <p className="tagline reveal-on-scroll">
               <strong>
-              Web developer focused on front-end design and development, turning ideas into impactful digital solutions.
+                Web developer focused on front-end design and development, turning ideas into impactful digital solutions.
               </strong>
             </p>
             <a href="#projects" className="hero-cta reveal-on-scroll">
-              View my projects ↓
+              View my projects
             </a>
           </div>
-          {/* 👇 Added your photo with pop-up + floating animation */}
           <div className="hero-image reveal-on-scroll">
-            <img
-              src="https://picsum.photos/seed/chiyamala/400/400"
-              alt="My Portrait"
-            />
+            <img src={heroImg} alt="Chiyamala Devi Portrait" />
           </div>
         </div>
       </header>
@@ -179,7 +192,7 @@ export default function App() {
           {projects.map((p, i) => (
             <article key={i} className="project-card reveal-on-scroll">
               <div className="project-media">
-                <img src={p.img} alt={`${p.title} placeholder`} />
+                <img src={p.img} alt={p.title} />
                 <div className="img-overlay"></div>
               </div>
               <div className="project-body">
@@ -329,7 +342,7 @@ export default function App() {
         <div className="certification-grid">
           <article className="certification-card reveal-on-scroll">
             <div className="certification-media">
-              <img src="https://picsum.photos/seed/cert1/400/300" alt="Java Certification" />
+              <img src={certJava} alt="Java Certification" />
             </div>
             <div className="certification-body">
               <h3>Java Certification</h3>
@@ -338,38 +351,38 @@ export default function App() {
           </article>
           <article className="certification-card reveal-on-scroll">
             <div className="certification-media">
-              <img src="https://picsum.photos/seed/cert2/400/300" alt="Web Development Certification" />
+              <img src={certAWS} alt="AWS Certification" />
             </div>
             <div className="certification-body">
-              <h3>Web Development Certification</h3>
-              <p>Focus on HTML, CSS, and JavaScript with hands-on projects.</p>
+              <h3>AWS Certification</h3>
+              <p>Cloud computing fundamentals with AWS services.</p>
             </div>
           </article>
           <article className="certification-card reveal-on-scroll">
             <div className="certification-media">
-              <img src="https://picsum.photos/seed/cert3/400/300" alt="AI Fundamentals Certification" />
+              <img src={certAzure} alt="Azure Fundamentals" />
             </div>
             <div className="certification-body">
-              <h3>AI Fundamentals Certification</h3>
-              <p>Introduction to machine learning and AI applications.</p>
+              <h3>Azure Fundamentals</h3>
+              <p>Introduction to Microsoft Azure cloud platform.</p>
             </div>
           </article>
           <article className="certification-card reveal-on-scroll">
             <div className="certification-media">
-              <img src="https://picsum.photos/seed/course1/400/300" alt="Python Course" />
+              <img src={certWeb} alt="Web Development Internship" />
             </div>
             <div className="certification-body">
-              <h3>Python Course</h3>
-              <p>Basics to intermediate Python programming skills.</p>
+              <h3>Web Development Internship</h3>
+              <p>Hands-on front-end development at Skillcraft Technology.</p>
             </div>
           </article>
           <article className="certification-card reveal-on-scroll">
             <div className="certification-media">
-              <img src="https://picsum.photos/seed/course2/400/300" alt="Data Structures Course" />
+              <img src={certAI} alt="AI Internship" />
             </div>
             <div className="certification-body">
-              <h3>Data Structures Course</h3>
-              <p>Fundamentals of data structures using C.</p>
+              <h3>AI Internship</h3>
+              <p>Machine learning and data analysis at Skillintern Bangalore.</p>
             </div>
           </article>
         </div>
@@ -381,7 +394,7 @@ export default function App() {
         <div className="internship-grid">
           <article className="internship-card reveal-on-scroll">
             <div className="internship-media">
-              <img src="https://picsum.photos/seed/intern1/400/300" alt="Web Development Internship Certificate" />
+              <img src={internWeb} alt="Web Development Internship" />
             </div>
             <div className="internship-body">
               <h3>Web Development Intern at Skillcraft Technology</h3>
@@ -390,7 +403,7 @@ export default function App() {
           </article>
           <article className="internship-card reveal-on-scroll">
             <div className="internship-media">
-              <img src="https://picsum.photos/seed/intern2/400/300" alt="AI Internship Certificate" />
+              <img src={internAI} alt="AI Internship" />
             </div>
             <div className="internship-body">
               <h3>AI Intern at Skillintern Bangalore</h3>
