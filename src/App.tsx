@@ -10,10 +10,10 @@ import project4 from './assets/project4.png';
 
 // Certifications (5)
 import certJava from './assets/cert-java.png';
-import certWeb from './assets/intern-web.png';     // Skillcraft Web Dev
-import certAI from './assets/intern-ai.png';       // Skillintern AI
-import certAWS from './assets/cert-aws.png';       // AWS
-import certAzure from './assets/cert-azure.png';   // Azure
+import certAWS from './assets/cert-aws.png';
+import certAzure from './assets/cert-azure.png';
+import certGenAI from './assets/cert-genai.png';
+import certMongoDB from './assets/cert-mongodb.png';
 
 // Internships (2)
 import internWeb from './assets/intern-web.png';
@@ -369,20 +369,20 @@ export default function App() {
           </article>
           <article className="certification-card reveal-on-scroll">
             <div className="certification-media">
-              <img src={certWeb} alt="Web Development Internship" />
+              <img src={certGenAI} alt="GenAI Certification" />
             </div>
             <div className="certification-body">
-              <h3>Web Development Internship</h3>
-              <p>Hands-on front-end development at Skillcraft Technology.</p>
+              <h3>GenAI Certification</h3>
+              <p>Introduction to generative AI and its applications.</p>
             </div>
           </article>
           <article className="certification-card reveal-on-scroll">
             <div className="certification-media">
-              <img src={certAI} alt="AI Internship" />
+              <img src={certMongoDB} alt="MongoDB Certification" />
             </div>
             <div className="certification-body">
-              <h3>AI Internship</h3>
-              <p>Machine learning and data analysis at Skillintern Bangalore.</p>
+              <h3>MongoDB Certification</h3>
+              <p>Database management with MongoDB NoSQL.</p>
             </div>
           </article>
         </div>
